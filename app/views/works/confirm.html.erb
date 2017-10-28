@@ -1,0 +1,27 @@
+<h3>以下の内容で、送信する。</h3>
+
+<%= form_for(@work) do |f| %>
+  <!-- `f.hidden_field`を使用して、リクエストパラメータに値を設定できるようにしています。 -->
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :material %>
+  <%= f.hidden_field :production1 %>
+  <%= f.hidden_field :production2 %>
+  <%= f.hidden_field :production3 %>
+
+  <!-- @blog.titleと@blog.contentとすることで、表示用の値を画面に出力しています。 -->
+  <p>タイトル:<%= @work.title %></p>
+  <p>材料:<%= @work.material %></p>
+  <p>課程1:<%= @work.production1 %></p>
+  <p>課程2:<%= @work.production2 %></p>
+  <p>課程3:<%= @work.production3 %></p>
+  <%= f.submit "作品を公開する" %>
+<% end %>
+
+<%= form_for(@work, url: new_work_path, method: 'get') do |f| %>
+<%= f.hidden_field :title %>
+<%= f.hidden_field :material %>
+<%= f.hidden_field :production1 %>
+<%= f.hidden_field :production2 %>
+<%= f.hidden_field :production3 %>
+  <%= f.submit "もどる", name: 'back' %>
+<% end %>

@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="mobirise/style.css">
+
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+
+
+    <%= fa_icon("home 5x") %>
+    <h3>作品一覧</h3>
+<% @works.each do |work| %>
+  <div class="row">
+  <h4><strong><p>タイトル:<%= work.title %><h4><strong>
+  <p>材料:<%= work.material %></p>
+  <p>課程1:<%= work.production1 %></p>
+  <p>課程2:<%= work.production2 %></p>
+  <p>課程3:<%= work.production3 %></p>
+
+
+  <%= link_to "作品レシピを編集する", edit_work_path(work.id), class: 'btn btn-sm btn-success' %>
+  <%= link_to "作品レシピを削除する", work_path(work.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-sm btn-danger' %>
+  </div>
+<% end %>
+
+<%= link_to "作品レシピを作成する", new_work_path %>

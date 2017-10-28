@@ -1,0 +1,20 @@
+<%= form_for(@work) do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<br>
+<%= f.label :material %>
+<%= f.text_field :material %>
+<br>
+<%= f.label :production1 %>
+<%= f.text_field :production1 %>
+<br>
+<%= f.label :production2 %>
+<%= f.text_field :production2 %>
+<br>
+<%= f.label :production3 %>
+<%= f.text_field :production3 %>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "作品一覧に戻る", works_path %>
